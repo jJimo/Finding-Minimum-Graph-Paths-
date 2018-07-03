@@ -1,0 +1,48 @@
+OBJS= buffer.o  main_dynamic_threads.o index.o bfs.o listworkload.o search.o connectedComponents.o byte_array_handler.o dynamic_threads.o bloomFilter.o
+SOURCE= buffer.c  main_dynamic_threads.c index.c bfs.c listworkload.c search.c connectedComponents.c byte_array_handler.c dynamic_threads.c bloomFilter.c
+HEADER= buffer.h index.h bfs.h listworkload.h connectedComponents.h byte_array_handler.h dynamic_threads.h bloomFilter.h
+OUT=graph_dynamic
+CC=gcc
+FLAGS= -g3 -c -lpthread
+
+all:$(OBJS)
+	$(CC) -g $(OBJS) -lm -o $(OUT) -lpthread
+
+connectedComponents.o: connectedComponents.c
+	$(CC) $(FLAGS) connectedComponents.c
+	
+buffer.o: buffer.c
+	$(CC) $(FLAGS) buffer.c
+
+search.o: search.c
+	$(CC) $(FLAGS) search.c
+	
+index.o: index.c
+	$(CC) $(FLAGS) index.c
+	
+list.o: list.c
+	$(CC) $(FLAGS) list.c
+
+bfs.o: bfs.c
+	$(CC) $(FLAGS) bfs.c
+
+listworkload.o: listworkload.c
+	$(CC) $(FLAGS) listworkload.c 
+
+byte_array_handler.o: byte_array_handler.c
+	$(CC) $(FLAGS) byte_array_handler.c
+	
+dynamic_threads.o: dynamic_threads.c
+	$(CC) $(FLAGS) dynamic_threads.c
+	
+main_dynamic_threads.o: main_dynamic_threads.c
+	$(CC) $(FLAGS) main_dynamic_threads.c
+	
+bloomFilter.o: bloomFilter.c
+	$(CC) $(FLAGS) bloomFilter.c
+	
+	
+clean:
+	rm *.o
+
+

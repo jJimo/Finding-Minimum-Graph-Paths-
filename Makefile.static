@@ -1,0 +1,52 @@
+OBJS= buffer.o  main_static_threads.o index.o list.o bit_array.o bfs.o listworkload.o search.o StronglyCC.o grail.o byte_array_handler.o static_threads.o
+SOURCE= main_static_threads.c buffer.c index.c list.c bit_array.c bfs.c listworkload.c search.c StronglyCC.c grail.c byte_array_handler.c static_threads.c
+HEADER= buffer.h index.h list.h bit_array.h bfs.h listworkload.h StronglyCC.h grail.h byte_array_handler.h static_threads.h
+OUT=graph_static
+CC=gcc
+FLAGS=-g3 -c -lpthread
+
+all:$(OBJS)
+	$(CC) -g $(OBJS) -lm -o $(OUT) -lpthread
+	
+buffer.o: buffer.c
+	$(CC) $(FLAGS) buffer.c
+
+search.o: search.c
+	$(CC) $(FLAGS) search.c
+	
+index.o: index.c
+	$(CC) $(FLAGS) index.c
+	
+main_static_threads.o: main_static_threads.c
+	$(CC) $(FLAGS) main_static_threads.c
+
+list.o: list.c
+	$(CC) $(FLAGS) list.c
+
+bit_array.o: bit_array.c
+	$(CC) $(FLAGS) bit_array.c 
+
+bfs.o: bfs.c
+	$(CC) $(FLAGS) bfs.c
+
+listworkload.o: listworkload.c
+	$(CC) $(FLAGS) listworkload.c 
+
+StrongyCC.o: StrongyCC.c
+	$(CC) $(FLAGS) StrongyCC.c 
+
+grail.o: grail.c
+	$(CC) $(FLAGS) grail.c 
+
+byte_array_handler.o: byte_array_handler.c
+	$(CC) $(FLAGS) byte_array_handler.c
+	
+static_threads.o: static_threads.c
+	$(CC) $(FLAGS) static_threads.c
+
+
+clean:
+	rm *.o
+
+
+
